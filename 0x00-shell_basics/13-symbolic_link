@@ -1,2 +1,2 @@
 #!/bin/bash 
-ln  /alx-system_engineering-devops/0x00-shell_basics/bin/ls __ls__
+ln -s __ls__  /alx-system_engineering-devops/0x00-shell_basics/bin/ls
