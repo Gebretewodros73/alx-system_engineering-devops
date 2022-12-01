@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo -u betty root
+sudo -u betty root whoami
