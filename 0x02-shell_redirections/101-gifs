@@ -1,17 +1,2 @@
 #!/bin/bash
-
-# Find all .gif files in the current directory and its sub-directories
-find . -type f -name "*.gif" |
-
-# Sort the files by byte value, ignoring case
-sort -t . -k1,1 -f |
-
-# Remove the extension from each file name
-sed -E 's/\.[^.]+$//' |
-
-# Print each file name on a separate line, ending with a new line
-while read file; do
-  echo "$file"
-done
-echo
-
+find . -type f -name "*.gif" -printf '%f\n' | sort -t . -k1,1 -f | sed -E 's/\.[^.]+$//' | tr '\n' '\0' | xargs -0 printf '%s\n'
