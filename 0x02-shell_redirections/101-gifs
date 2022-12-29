@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -Rla /etc/*.gif
+ls -Rla *.gif | sort -d
