@@ -1,2 +1,2 @@
 #!/bin/bash
-egrep ^[[:alpah:]] /etc/ssh/sshd_config
+grep ^ [[:alpah:]] /etc/passwd
