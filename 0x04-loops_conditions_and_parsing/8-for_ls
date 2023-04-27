@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# display name after the first -
+for file in *
+do
+if [ "${file:0:1}" != "." ]
+then
+name=${file#*-}
+echo "$name"
+fi
+done
