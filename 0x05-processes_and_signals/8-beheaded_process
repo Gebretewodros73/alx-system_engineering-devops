@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#kill highlandar
+pid=$(pgrep 7-highlander)
+kill "$pid"
