@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# kills the To infinity and beyond with out using kill or killall
+while true
+do
+pkill -f "4-to_infinity_and_beyond"
+if [ $? -eq 0 ]
+then
+echo "Terminated"
+break
+fi
+done
