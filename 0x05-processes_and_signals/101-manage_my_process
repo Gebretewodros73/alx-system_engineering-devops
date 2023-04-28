@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# protect from daemon
+PID_FILE="/var/run/my_process.pid"
+LOG_FILE="/tmp/my_process"
+function start_process {
+if [[ -f "$PID_FILE" ]]; then
+echo "manage_my_process is already running with PID $(cat "$PID_FILE")"
+exit 1
+fi
+nohup bash manage_my_process.sh >> "$LOG_FILE" &
+echo $! > "$PID_FILE"
+echo "manage_my_process started"
+}
+function stop_process {
+if [[ ! -f "$PID_FILE" ]]; then
+echo "manage_my_process is not running"
+exit 1
+fi
+pid=$(cat "$PID_FILE")
+kill $pid && rm "$PID_FILE"
+echo "manage_my_process stopped"
+}
+function restart_process {
+stop_process
+start_process
+echo "manage_my_process restarted"
+}
+if [[ $# -ne 1 ]]; then
+echo "Usage: $0 {start|stop|restart}"
+exit 1
+fi
+case "$1" in
+start)
+start_process
+;;
+stop)
+stop_process
+;;
+restart)
+restart_process
+;;
+*)
+echo "Usage: $0 {start|stop|restart}"
+exit 1
+;;
+esac

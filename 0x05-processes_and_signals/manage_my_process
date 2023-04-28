@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# manege my processes
+while true
+do
+echo "I am alive!"
+sleep 2
+done
