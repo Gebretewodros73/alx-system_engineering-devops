@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# display all processes for current directory including those without a controlling terminal.
+ps auxf | less -S
