@@ -8,7 +8,7 @@ echo "manage_my_process is already running with PID $(cat "$PID_FILE")"
 exit 1
 fi
 nohup bash manage_my_process.sh >> "$LOG_FILE" &
-echo $! > "$PID_FILE"
+echo "$!" > "$PID_FILE"
 echo "manage_my_process started"
 }
 function stop_process {
@@ -17,7 +17,7 @@ echo "manage_my_process is not running"
 exit 1
 fi
 pid=$(cat "$PID_FILE")
-kill $pid && rm "$PID_FILE"
+kill "$pid" && rm "$PID_FILE"
 echo "manage_my_process stopped"
 }
 function restart_process {
