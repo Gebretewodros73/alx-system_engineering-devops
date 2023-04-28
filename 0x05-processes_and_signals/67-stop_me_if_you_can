@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# trinig
+function stop {
+echo "Stopping 7-highlander..."
+Pkill -f "7=highlander"
+exit 0
+}
+trap stop SIGTERM
+while true
+do
+echo "To infinity and beyond"
+sleep 2
+done
