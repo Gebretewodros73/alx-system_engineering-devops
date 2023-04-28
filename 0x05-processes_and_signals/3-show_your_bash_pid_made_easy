@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# display the PID, along with the process name contains the word bash
+pids=($(pgrep bash))
+for pid in "${pids[@]}"
+do
+cmd=$(tr '\0' ' ' < "/proc/${pid}/cmdline")
+if [[ "$cmd" =~ bash ]]
+then
+name=$(ps -p "$pid" -o comm=)
+echo "$pid $name"
+fi
+done
