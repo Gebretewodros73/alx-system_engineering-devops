@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Display listening socket with associated PID and program name
+netstat -tlnp | awk 'NR>2 {print $4, $7}' | while read line; do
+ip=$(echo "$line" | awk '{split($1, a, ":"); print a[1]}')
+port=$(echo "$line" | awk '{split($1, a, ":"); print a[2]}')
+pid=$(echo "$line" | awk '{split($2, a, "/"); print a[1]}')
+pname=$(echo "$line" | awk '{split($2, a, "/"); print a[2]}')
+if [ "$ip" != "" ]
+then
+	echo "IP address: $ip, Port number: $port, PID: $pid, Program name: $pname"
+fi
+done
