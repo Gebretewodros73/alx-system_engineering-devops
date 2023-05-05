@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Uses ping command to ping the IP address five times.
+if [ -z "$1" ]
+then
+	echo "Usage: "$0" {IP_ADDRESS}"
+	exit 1
+fi
+
+ping -c 5 "$1"
