@@ -4,10 +4,10 @@ This repository contains the design and implementation of different web infrastr
 
 ## Table of Contents
 
-- [0-simple_web_stack](#0-simple_web_stack)
-- [1-distributed_web_infrastructure](#1-distributed_web_infrastructure)
-- [2-secured_and_monitored_web_infrastructure](#2-secured_and_monitored_web_infrastructure)
-- [3-scale_up](#3-scale_up)
+- [0-simple_web_stack](./0-simple_web_stack)
+- [1-distributed_web_infrastructure](./1-distributed_web_infrastructure)
+- [2-secured_and_monitored_web_infrastructure](./2-secured_and_monitored_web_infrastructure)
+- [3-scale_up](./3-scale_up)
 
 ## Project Sections
 
