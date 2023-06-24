@@ -2,5 +2,8 @@
 
 exec { 'killmenow':
   command => 'pkill killmenow',
-  refreshonly => true,
+}
+
+notify { 'Process terminated':
+  message => 'Terminated',
 }
