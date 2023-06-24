@@ -62,6 +62,16 @@ $ gem install puppet-lint
 ```
 ## Tasks
 #### Task 0: Create a File
+Using Puppet, create a file in `/tmp` with specific requirements.
+
+Requirements:
+* File path is `/tmp/school`
+* File permission is `0744`
+* File owner is `www-data`
+* File group is `www-data`
+* File content is "I love Puppet"
+Refer to the Puppet manifest file [0-create_a_file.pp](./0-create_a_file.pp) in the repository for an example.
+#### Task 1: Install a Package
 Using Puppet, install `flask` from `pip3` with specific requirements.
 
 Requirements:
@@ -69,7 +79,8 @@ Requirements:
 * Install `flask` package.
 * Version must be `2.1.0`
 
-Refer to the Puppet manifest file `1-install_a_package.pp` in the repository for an example.
+Refer to the Puppet manifest file [1-install_a_package.pp](./1-install_a_package.pp) in the repository for an example.
+
 #### Task 2: Execute a Command
 Using Puppet, create a manifest that kills a process named `killmenow`.
 
@@ -78,7 +89,7 @@ Requirements:
 * Use the exec Puppet resource.
 * Use `pkill` command to kill the process.
 
-Refer to the Puppet manifest file `2-execute_a_command.pp` in the repository for an example.
+Refer to the Puppet manifest file [2-execute_a_command.pp](./2-execute_a_command.pp) in the repository for an example.
 
 ## Repository Information
 The project repository can be accessed at the following location:
