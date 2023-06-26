@@ -2,6 +2,14 @@
 
 This project focuses on various topics related to security, DevOps, scripting, and hacking. It is an optional project that offers additional credit and is designed to enhance your understanding and practical skills in these areas.
 
+## Table of Contents
+
+1. [Concepts](#Concepts)
+2. [Background Context](#Background-Context)
+3. [Resources](#Resources)
+4. [Tasks](#Tasks)
+5. [Learning Objectives](#Learning-Objectives)
+
 ## Concepts
 
 To successfully complete this project, familiarize yourself with the following concepts:
