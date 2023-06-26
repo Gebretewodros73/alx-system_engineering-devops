@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+#connect using only ssh
+
 ssh -i ~/.ssh/school ubuntu@52.204.71.71
