@@ -11,7 +11,7 @@ This directory contains the solutions for the web server project in the ALX Syst
 The web server project focuses on configuring and setting up a web server using Nginx. It covers various aspects of web servers, including file transfer, installation, domain setup, redirection, and error handling.
 
 ## Learning Objectives
-By completing the tasks in this project, you will gain knowledge and skills in the following areas:
+By completing the tasks in this project, gain knowledge and skills in the following areas:
 - Understanding the main role of a web server
 - Explaining the concept of a child process
 - Configuring Nginx web server according to requirements
