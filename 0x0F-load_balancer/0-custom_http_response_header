@@ -14,7 +14,7 @@ echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 # Modify Nginx configuration to include rewrite rule and custom header
 sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/gebretewodros73 permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
 
-sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/sites-available/default
+sed -i "/server_name _;/a \\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
 
 # Start Nginx service
 service nginx start
