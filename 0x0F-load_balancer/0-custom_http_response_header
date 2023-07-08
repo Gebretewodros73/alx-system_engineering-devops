@@ -1,21 +1,37 @@
 #!/usr/bin/env bash
-# Update the system
-apt-get -y update
-
-# Install Nginx
+# Installs, configures, and starts the server
+apt-get update
 apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+HOSTNAME=$(hostname)
+SERVER_CONFIG=\
+"server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        
+        location / {
+                try_files \$uri \$uri/ =404;
+                add_header X-Served-By $HOSTNAME;
+        }
+        
+        location /redirect_me {
+                return 301 https://github.com/gebretewodros73;
+        }
+}"
 
-# Create index file with "Hello World!"
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+CONFIG_FILE="/etc/nginx/sites-enabled/default"
+if ! grep -qF "$SERVER_CONFIG" "$CONFIG_FILE"; then
+    echo "$SERVER_CONFIG" | sudo tee -a "$CONFIG_FILE" > /dev/null
+fi
 
-# Create custom 404 page
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-
-# Modify Nginx configuration to include rewrite rule and custom header
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/gebretewodros73 permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
-
-sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
-
-# Start Nginx service
-service nginx start
-
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+        service nginx start
+else
+        service nginx restart
+fi
