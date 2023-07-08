@@ -23,6 +23,12 @@ SERVER_CONFIG=\
         location /redirect_me {
                 return 301 https://github.com/gebretewodros73;
         }
+
+	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		root /usr/share/nginx/html;
+		internal;
+	}
 }"
 
 CONFIG_FILE="/etc/nginx/sites-enabled/default"
