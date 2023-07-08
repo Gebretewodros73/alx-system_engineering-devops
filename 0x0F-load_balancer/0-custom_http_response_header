@@ -30,6 +30,8 @@ if ! grep -qF "$SERVER_CONFIG" "$CONFIG_FILE"; then
     echo "$SERVER_CONFIG" | sudo tee -a "$CONFIG_FILE" > /dev/null
 fi
 
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html > /dev/null
+
 if [ "$(pgrep -c nginx)" -le 0 ]; then
         service nginx start
 else
