@@ -2,4 +2,4 @@
 # Bash script with a maximum of 5 lines (excluding the shebang) to achieve the same outcome.
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx start
-service nginx status | grep -q "nginx is not running"
+kill "$(pgrep 'nginx' | head -1)"
