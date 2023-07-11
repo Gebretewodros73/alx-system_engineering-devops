@@ -4,14 +4,8 @@
 apt-get -y update
 apt-get -y install haproxy
 
-# Check if ENABLED=1 already exists in /etc/default/haproxy
-if ! grep -q "ENABLED=1" /etc/default/haproxy; then
-    echo "ENABLED=1" >> /etc/default/haproxy
-fi
+echo "ENABLED=1" >> /etc/default/haproxy
 
-# Add haproxy configuration to /etc/haproxy/haproxy.cfg
-# Only add the configuration if it doesn't already exist
-if ! grep -q "listen load_balancer" /etc/haproxy/haproxy.cfg; then
     echo "
         listen load_balancer
         bind *:80
@@ -23,7 +17,5 @@ if ! grep -q "listen load_balancer" /etc/haproxy/haproxy.cfg; then
         server 209964-web-02 100.26.175.9:80 check
 
     " >> /etc/haproxy/haproxy.cfg
-fi
 
-systemctl enable haproxy
-systemctl start haproxy
+service haproxy start
