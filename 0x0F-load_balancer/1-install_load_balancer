@@ -1,32 +1,29 @@
 #!/usr/bin/env bash
-#Bash script configures a new Ubuntu machine to match the task requirements
-# Update the system
-apt-get update
+# Installs and setup haproxy
 
-# Install HAProxy
+apt-get -y update
 apt-get -y install haproxy
 
-# Configure HAProxy
-CONFIG_FILE="/etc/haproxy/haproxy.cfg"
+# Check if ENABLED=1 already exists in /etc/default/haproxy
+if ! grep -q "ENABLED=1" /etc/default/haproxy; then
+    echo "ENABLED=1" >> /etc/default/haproxy
+fi
 
-# Backup the original configuration file
-cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
+# Add haproxy configuration to /etc/haproxy/haproxy.cfg
+# Only add the configuration if it doesn't already exist
+if ! grep -q "listen load_balancer" /etc/haproxy/haproxy.cfg; then
+    echo "
+        listen load_balancer
+        bind *:80
+        mode http
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        server 209964-web-01 52.204.71.71:80 check
+        server 209964-web-02 100.26.175.9:80 check
 
-# Create a new configuration file
-echo "
-frontend load_balancer
-    bind *:80
-    mode http
-    default_backend webservers
+    " >> /etc/haproxy/haproxy.cfg
+fi
 
-backend webservers
-    balance roundrobin
-    server 209964-web-01 52.204.71.71
-    server 209964-web-02 100.26.175.9
-" | tee "$CONFIG_FILE" > /dev/null
-
-# Enable HAProxy service to start on boot
 systemctl enable haproxy
-
-# Restart HAProxy service
 systemctl start haproxy
