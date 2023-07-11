@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#Bash script with the minimum number of commands to automate the fix.
 # Remove the default Nginx configuration from sites-enabled directory
 rm /etc/nginx/sites-enabled/default
 
