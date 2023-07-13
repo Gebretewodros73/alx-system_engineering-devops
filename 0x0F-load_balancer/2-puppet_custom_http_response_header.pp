@@ -1,28 +1,25 @@
-# Update package manager's repository metadata
-exec { 'update':
-  command => 'apt-get -y update',
-  path    => '/usr/bin',
+# Installs a Nginx server with custome HTTP header
+
+exec {'update':
+  provider => shell,
+  command  => 'sudo apt-get -y update',
+  before   => Exec['install Nginx'],
 }
 
-# Install Nginx server
-package { 'nginx':
-  ensure => installed,
-  before => Exec['add_header'],
+exec {'install Nginx':
+  provider => shell,
+  command  => 'sudo apt-get -y install nginx',
+  before   => Exec['add_header'],
 }
 
-# Modify Nginx configuration to add custom HTTP header
 exec { 'add_header':
-  command     => 'sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$hostname\";/" /etc/nginx/nginx.conf',
-  path        => '/bin',
-  refreshonly => true,
-  subscribe   => Package['nginx'],
-  notify      => Service['nginx'],
+  provider    => shell,
+  environment => ["HOST=${hostname}"],
+  command     => 'sudo sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOST\";/" /etc/nginx/nginx.conf',
+  before      => Exec['restart Nginx'],
 }
 
-# Restart Nginx service
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => Package['nginx'],
-}
+exec { 'restart Nginx':
+  provider => shell,
+  command  => 'sudo service nginx restart',
 }
