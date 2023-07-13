@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 ################################################################################
 # Script: 1-world_wide_web
 # Usage: ./1-world_wide_web <domain> <subdomain>
