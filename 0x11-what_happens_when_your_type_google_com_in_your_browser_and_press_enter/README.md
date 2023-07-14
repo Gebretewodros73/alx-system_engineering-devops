@@ -3,9 +3,9 @@
 This directory contains tasks related to understanding what happens when you type "google.com" in your browser and press Enter. It explores the various components and processes involved in loading a webpage.
 
 ## Table of Contents
-1. [Task 0: What happens when...](##Task_0:_What_happens_when...)
-2. [Task 1: Everything's better with a pretty diagram](##Task_1:_Evertthing's_better_with_a_pretty_diagram)
-3. [Task 2: Contribute!](##Task 2:_Contribute!)
+1. [Task 0: What happens when...](#Task-0:-What-happens-when...)
+2. [Task 1: Everything's better with a pretty diagram](#Task-1:-Evertthing's-better-with_a-pretty-diagram)
+3. [Task 2: Contribute!](##Task-2:-Contribute!)
 ## Task 0: What happens when...
 
 In this task, it's required to write a blog post explaining what happens when you type "https://www.google.com" in your browser and press Enter. The blog post covers the following topics:
