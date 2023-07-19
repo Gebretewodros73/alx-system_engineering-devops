@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#run whoami user passed
+# run whoami user passed
 
 sudo -u "$1" whoami
