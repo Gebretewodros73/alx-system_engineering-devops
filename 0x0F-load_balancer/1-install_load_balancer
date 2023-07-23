@@ -13,7 +13,7 @@ echo "ENABLED=1" >> /etc/default/haproxy
         balance roundrobin
         option httpclose
         option forwardfor
-        server 209964-web-01 52.204.71.71:80 check
+        server 209964-web-01 100.25.2.154:80 check
         server 209964-web-02 100.26.175.9:80 check
 
     " >> /etc/haproxy/haproxy.cfg
