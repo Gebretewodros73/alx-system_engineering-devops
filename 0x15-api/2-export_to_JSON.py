@@ -1,58 +1,35 @@
 #!/usr/bin/python3
 """
-Module Description; extends the functionality
-from Task 0 to export data in JSON format
+Request from API; Return TODO list progress given employee ID
+Export this data to JSON
 """
-import sys
-import requests
+from sys import argv
 import json
+import requests
 
 
-def gather_data_from_api(employee_id):
-    # API endpoint URL
-    url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
+def to_json():
+    """return API data"""
+    users = requests.get("http://jsonplaceholder.typicode.com/users")
+    for u in users.json():
+        if u.get('id') == int(argv[1]):
+            USERNAME = (u.get('username'))
+            break
+    TASK_STATUS_TITLE = []
+    todos = requests.get("http://jsonplaceholder.typicode.com/todos")
+    for t in todos.json():
+        if t.get('userId') == int(argv[1]):
+            TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
 
-    try:
-        # Make the API request
-        response = requests.get(url)
-        response.raise_for_status()  # Check for any HTTP errors
+    """export to json"""
+    t = []
+    for task in TASK_STATUS_TITLE:
+        t.append({"task": task[1], "completed": task[0], "username": USERNAME})
+    data = {str(argv[1]): t}
+    filename = "{}.json".format(argv[1])
+    with open(filename, "w") as f:
+        json.dump(data, f)
 
-        # Parse the JSON response
-        todo_list = response.json()
-        return todo_list
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching data from the API: {e}")
-        sys.exit(1)
-
-
-def export_to_json(employee_id, todo_list):
-    # Get the employee's username
-    username = todo_list[0]['username']
-
-    # Prepare JSON file name
-    filename = f"{employee_id}.json"
-
-    # Prepare JSON data
-    data = {employee_id: []}
-    for task in todo_list:
-        data[employee_id].append({"task": task['title'],  "completed": task['completed'], "username": username})
-    
-    # Write data to JSON file
-    with open(filename, mode='w') as file:
-        json.dump(data, file, indent=4)
-    
-    print(f"Data exported to {filename}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 2-export_to_JSON.py EMPLOYEE_ID")
-        sys.exit(1)
-    
-    employee_id = sys.argv[1]
-    if not employee_id.isdigit():
-        print("EMPLOYEE_ID must be an integer.")
-        sys.exit(1)
-    
-    todo_list = gather_data_from_api(int(employee_id))
-    export_to_json(employee_id, todo_list)
+    to_json()
