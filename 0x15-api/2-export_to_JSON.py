@@ -1,39 +1,42 @@
 #!/usr/bin/python3
 """
-Module Description; extends the functionality from Task 0 to export data in JSON format
+Module Description; extends the functionality
+from Task 0 to export data in JSON format
 """
 import sys
 import requests
 import json
 
+
 def gather_data_from_api(employee_id):
     # API endpoint URL
     url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
-    
+
     try:
         # Make the API request
         response = requests.get(url)
         response.raise_for_status()  # Check for any HTTP errors
-        
+
         # Parse the JSON response
         todo_list = response.json()
         return todo_list
-    
+
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data from the API: {e}")
         sys.exit(1)
 
+
 def export_to_json(employee_id, todo_list):
     # Get the employee's username
     username = todo_list[0]['username']
-    
+
     # Prepare JSON file name
     filename = f"{employee_id}.json"
-    
+
     # Prepare JSON data
     data = {employee_id: []}
     for task in todo_list:
-        data[employee_id].append({"task": task['title'], "completed": task['completed'], "username": username})
+        data[employee_id].append({"task": task['title'],  "completed": task['completed'], "username": username})
     
     # Write data to JSON file
     with open(filename, mode='w') as file:
