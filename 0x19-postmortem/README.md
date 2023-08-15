@@ -69,61 +69,61 @@ This postmortem provides insights into the outage incident, its impact, root cau
          +-----------------+-----------------+
                            |
                            v
-+--------------------------+--------------------------+
-|                       Escalation                     |
-|                                                     |
-|    Notify Relevant Teams and Individuals            |
-|    Begin Investigation and Analysis                  |
-+-----------------+-----------------+------------------+
+	+--------------------------+--------------------------+
+	|                       Escalation                     |
+	|                                                     |
+	|    Notify Relevant Teams and Individuals            |
+	|    Begin Investigation and Analysis                  |
+	+-----------------+-----------------+------------------+
                   |                 |
                   v                 v
-+-----------------+-----------------+------------------+
-|                 |                 |                  |
-|   False Alarm   |   Root Cause    |   User-Reported  |
-|                 |   Identified    |   Issue Analyzed |
-|                 v                 v                  |
-| +---------------+---------------+ +----------------+ |
-| |                               | |                | |
-| |    No Further Action          | |  Apply Fix     | |
-| |                               | |                | |
-| +-------------------------------+ +----------------+ |
-|                 |                 |                  |
-|                 v                 v                  |
-| +---------------+-----------------+----------------+ |
-| |                                                 | |
-| |             Update Monitoring and Alerts         | |
-| |                                                 | |
-| +------------------------+------------------------+ |
-|                          |                          |
-|                          v                          |
-|   +----------------------+----------------------+   |
-|   |                                              |   |
-|   |         Prepare Incident Postmortem          |   |
-|   |                                              |   |
-|   +----------------------------------------------+   |
-|                          |                          |
-|                          v                          |
-| +-----------------+-----------------+----------------+ |
-| |                 |                 |                | |
-| |  Share Postmortem| Implement Fixes |  Monitor      | |
-| |  with Teams      | and Preventive  |  Improvements | |
-| |                 | Measures         |                | |
-| +-----------------+-----------------+----------------+ |
-|                          |                          |
-|                          v                          |
-|                 +------------------+                  |
-|                 |                  |                  |
-|                 |   Incident       |                  |
-|                 |   Closed         |                  |
-|                 |                  |                  |
-|                 +------------------+                  |
-+--------------------------+--------------------------+
+	+-----------------+-----------------+------------------+
+	|                 |                 |                  |
+	|   False Alarm   |   Root Cause    |   User-Reported  |
+	|                 |   Identified    |   Issue Analyzed |
+	|                 v                 v                  |
+	| +---------------+---------------+ +----------------+ |
+	| |                               | |                | |
+	| |    No Further Action          | |  Apply Fix     | |
+	| |                               | |                | |
+	| +-------------------------------+ +----------------+ |
+	|                 |                 |                  |
+	|                 v                 v                  |
+	| +---------------+-----------------+----------------+ |
+	| |                                                 | |
+	| |             Update Monitoring and Alerts         | |
+	| |                                                 | |
+	| +------------------------+------------------------+ |
+	|                          |                          |
+	|                          v                          |
+	|   +----------------------+----------------------+   |
+	|   |                                              |   |
+	|   |         Prepare Incident Postmortem          |   |
+	|   |                                              |   |
+	|   +----------------------------------------------+   |
+	|                          |                          |
+	|                          v                          |
+	| +-----------------+-----------------+----------------+ |
+	| |                 |                 |                | |
+	| |  Share Postmortem| Implement Fixes |  Monitor      | |
+	| |  wit	 Teams      | and Preventive  |  Improvements | |
+	| |                 | MEASURES         |                | |
+	| +-----------------+-----------------+----------------+ |
+	|                          |                          |
+	|                          v                          |
+	|                 +------------------+                  |
+	|                 |                  |                  |
+	|                 |   Incident       |                  |
+	|                 |   Closed         |                  |
+	|                 |                  |                  |
+	|                 +------------------+                  |
+	+--------------------------+--------------------------+
 
 
 **Note:** Remember that these blog-style documents should be written in English to improve your technical communication skills in various settings.
 
 **Repository:**
-- GitHub Repository: [alx-system_engineering-devops](https://github.com/your-username/alx-system_engineering-devops)
+- GitHub Repository: [alx-system_engineering-devops](https://github.com/gebretewodros73/alx-system_engineering-devops)
 - Directory: 0x19-postmortem
 
 
