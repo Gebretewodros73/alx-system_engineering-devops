@@ -75,8 +75,8 @@ This postmortem provides insights into the outage incident, its impact, root cau
 	|     Notify Relevant Teams and Individuals            |
 	|    Begin Investigation and Analysis                  |
 	+-----------------+-----------------+------------------+
-                 	  |     	            |
-			  v             	    v
+                 	  |     	    |
+			  v                 v
 	+-----------------+-----------------+--------------------+
 	|                 |                 |                    |
 	|   False Alarm   |   Root Cause    |   User-Reported    |
