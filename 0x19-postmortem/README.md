@@ -62,65 +62,63 @@ This postmortem provides insights into the outage incident, its impact, root cau
 
 ## Task 1: Make People Want to Read Your Postmortem
 
-         +-----------------------------------+
-         |        Incident Detected         |
-         |                                   |
-         |   Monitoring Alert / User Report  |
-         +-----------------+-----------------+
-                           |
-                           v
-	+--------------------------+--------------------------+
+	         +-----------------------------------+
+	         |         Incident Detected         |
+	         |                                   |
+	         |   Monitoring Alert / User Report  |
+	         +-----------------+-----------------+
+        	                   |
+                	           v
+	+---------------------------+--------------------------+
 	|                       Escalation                     |
-	|                                                     |
-	|    Notify Relevant Teams and Individuals            |
+	|                                                      |
+	|     Notify Relevant Teams and Individuals            |
 	|    Begin Investigation and Analysis                  |
 	+-----------------+-----------------+------------------+
-                  |                 |
-                  v                 v
-	+-----------------+-----------------+------------------+
-	|                 |                 |                  |
-	|   False Alarm   |   Root Cause    |   User-Reported  |
-	|                 |   Identified    |   Issue Analyzed |
-	|                 v                 v                  |
-	| +---------------+---------------+ +----------------+ |
-	| |                               | |                | |
-	| |    No Further Action          | |  Apply Fix     | |
-	| |                               | |                | |
-	| +-------------------------------+ +----------------+ |
-	|                 |                 |                  |
-	|                 v                 v                  |
-	| +---------------+-----------------+----------------+ |
-	| |                                                 | |
-	| |             Update Monitoring and Alerts         | |
-	| |                                                 | |
-	| +------------------------+------------------------+ |
-	|                          |                          |
-	|                          v                          |
-	|   +----------------------+----------------------+   |
-	|   |                                              |   |
-	|   |         Prepare Incident Postmortem          |   |
-	|   |                                              |   |
-	|   +----------------------------------------------+   |
-	|                          |                          |
-	|                          v                          |
+                 	  |     	            |
+               	 	  v             	    v
+	+-----------------+-----------------+--------------------+
+	|                 |                 |                    |
+	|   False Alarm   |   Root Cause    |   User-Reported    |
+	|                 |   Identified    |   Issue Analyzed   |
+	|                 v                 v                    |
+	| +---------------+---------------+ +----------------+   |
+	| |                               | |                |   |
+	| |    No Further Action          | |  Apply Fix     |   |
+	| |                               | |                |   |
+	| +-------------------------------+ +----------------+   |
+	|                 |                 |                    |
+	|                 v                 v                    |
+	| +---------------+-----------------+----------------+   |
+	| |                                                  |   |
+	| |             Update Monitoring and Alerts         |   |
+	| |                                                  |   |
+	| +-------------------------+------------------------+   |
+	|                           |                            |
+	|                           v                            |
+	|   +-----------------------+----------------------+     |
+	|   |                                              |     |
+	|   |         Prepare Incident Postmortem          |     |
+	|   |                                              |     |
+	|   +----------------------------------------------+     |
+	|                          |                             |
+	|                          v                             |
 	| +-----------------+-----------------+----------------+ |
-	| |                 |                 |                | |
+	| |                  |                 |               | |
 	| |  Share Postmortem| Implement Fixes |  Monitor      | |
-	| |  wit	 Teams      | and Preventive  |  Improvements | |
-	| |                 | MEASURES         |                | |
+	| |  with Teams      | and Preventive  |  Improvements | |
+	| |                  | MEASURES        |               | |
 	| +-----------------+-----------------+----------------+ |
-	|                          |                          |
-	|                          v                          |
-	|                 +------------------+                  |
-	|                 |                  |                  |
-	|                 |   Incident       |                  |
-	|                 |   Closed         |                  |
-	|                 |                  |                  |
-	|                 +------------------+                  |
-	+--------------------------+--------------------------+
+	|                          |                             |
+	|                          v                             |
+	|                 +------------------+                   |
+	|                 |                  |                   |
+	|                 |   Incident       |                   |
+	|                 |   Closed         |                   |
+	|                 |                  |                   |
+	|                 +------------------+                   |
+	+--------------------------+-----------------------------+
 
-
-**Note:** Remember that these blog-style documents should be written in English to improve your technical communication skills in various settings.
 
 **Repository:**
 - GitHub Repository: [alx-system_engineering-devops](https://github.com/gebretewodros73/alx-system_engineering-devops)
