@@ -12,4 +12,3 @@ events {
 http {
   # Other Nginx configuration settings...
 }
-
