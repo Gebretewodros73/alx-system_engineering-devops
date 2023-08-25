@@ -81,5 +81,3 @@ Each folder contains its own README file, providing detailed explanations, code 
 
 ## Conclusion
 The "alx-system_engineering-devops" repository serves as a valuable resource for individuals interested in system engineering and DevOps. Whether you are a system administrator, a software developer, or someone looking to enhance your understanding of these domains, the materials in this repository will help you acquire the necessary knowledge and skills.
-
-Feel free to explore the folders, study the provided materials, and practice your skills through the exercises and projects. Enjoy your learning experience and embrace the world of system engineering and DevOps!
