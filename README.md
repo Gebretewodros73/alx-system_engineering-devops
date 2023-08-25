@@ -74,7 +74,7 @@ The repository is organized into the following folders, each covering specific s
 24. [0x0D. Web stack debugging #0](./0x0D-web_stack_debugging_0)
 25. [0x0E. Web stack debugging #1](./0x0E-web_stack_debugging_1)
 26. [0x12. Web stack debugging #2](./0x12-web_stack_debugging_2)
-27. [0x17. Web stack debugging #3](./0x17. Web stack debugging #3)
+27. [0x17. Web stack debugging #3](./0x17-web_stack_debugging_3)
 28. [0x1B. Web stack debugging #4](./0x1B-web_stack_debugging_4)
 
 Each folder contains its own README file, providing detailed explanations, code examples, and exercises specific to that topic.
